@@ -5,12 +5,12 @@ intrusions using behavioral and session-level features, with a full
 pipeline from data understanding through explainability and fairness
 auditing.
 
-## 📊 CAPSTONE Overview
+## 📊 Project Overview
 
 - **Task:** Binary classification (attack vs. normal), with an
   unsupervised anomaly-detection supplement (Isolation Forest)
 - **Dataset:** [Kaggle — Cybersecurity Intrusion Detection Dataset](https://www.kaggle.com/datasets/dnkumars/cybersecurity-intrusion-detection-dataset)
-- **Best model:** *DECISION TREE*
+- **Best model:** Decision Tree — F1-Score (macro): 0.7778, Recall (attack class): 0.7749, ROC-AUC: 0.7942, MCC: 0.6349
 
 ## 🗂️ Repository Structure
 
@@ -24,8 +24,6 @@ auditing.
 - **`requirements.txt`**
 - **`LICENSE`** — MIT License
 - **`README.md`**
-
-
 
 ## 🚀 Getting Started
 
@@ -64,10 +62,13 @@ auditing.
 
 ## 🔍 Key Results
 
-- Best model: **DECISION TREE**
-- F1-Score (macro): **0.7778**
-- Recall (attack detection): **0.7749**
-- ROC-AUC: **0.7942**
+- Best model: **Decision Tree**
+- F1-Score (macro): **0.7778** (target: ≥ 0.90)
+- Recall (attack detection): **0.7749** (target: ≥ 0.90)
+- ROC-AUC: **0.7942** (target: ≥ 0.95)
+- MCC: **0.6349** (target: ≥ 0.85)
+
+*Note: results fell short of the aspirational targets set in Step 1, attributable in part to a small, correlated feature set surviving mutual-information filtering (see Step 5.4 for full discussion). Five of six model families converged to near-identical scores as a direct consequence — investigated and explained, not a modelling error.*
 
 ## ⚖️ Responsible AI
 
