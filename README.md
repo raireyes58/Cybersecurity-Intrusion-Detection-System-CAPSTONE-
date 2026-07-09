@@ -13,16 +13,16 @@ auditing.
 - **Best model:** *Decision Tree (F1-Score macro 0.7778)*
 
 ## 🗂️ Repository Structure
-├── src/            # Notebook-based reusable functions (see src/README.md)
-├── notebooks/      # Main capstone analysis notebook
-├── data/           # Not committed — dataset auto-downloads via kagglehub
-├── models/         # Saved model artefacts (final_model.pkl, scaler, config)
-├── reports/        # Generated CSV/text reports (audits, metrics, summaries)
-├── figures/        # Saved visualisations (PNG)
-├── docs/           # Final report and presentation decks (technical + business)
-├── requirements.txt
-├── LICENSE         # MIT License
-└── README.md
+├── src/          |  # Notebook-based reusable functions (see src/README.md) |
+├── notebooks/    | # Main capstone analysis notebook |
+├── data/         | # Not committed — dataset auto-downloads via kagglehub |
+├── models/       | # Saved model artefacts (final_model.pkl, scaler, config) |
+├── reports/      |  # Generated CSV/text reports (audits, metrics, summaries) |
+├── figures/      |  # Saved visualisations (PNG) |
+├── docs/         | # Final report and presentation decks (technical + business) |
+├── requirements.txt |
+├── LICENSE       |  # MIT License |
+└── README.md     |
 
 ## 🚀 Getting Started
 
@@ -80,8 +80,10 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 ## 👤 Author
 
-Raizza Reyes-Basa
-Postgrad Diploma in Artificial Intelligence and Machine Learning
-Asian Institute of Management
-Class of 2025 - COHORT 3
-Linkedin : https://www.linkedin.com/in/raireyes/
+- **Raizza Reyes-Basa**
+- **Postgrad Diploma in Artificial Intelligence and Machine Learning**
+- **Asian Institute of Management**
+- **Class of 2025 - COHORT 3**
+- **Linkedin : https://www.linkedin.com/in/raireyes/**
+
+
