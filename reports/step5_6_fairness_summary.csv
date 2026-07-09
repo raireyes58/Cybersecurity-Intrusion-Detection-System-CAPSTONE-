@@ -1,8 +1,0 @@
-,value
-demographic_parity_diff,0.026868053426179622
-demographic_parity_flag,False
-equalized_odds_tpr_diff,0.112293638564825
-equalized_odds_fpr_diff,0.0
-equalized_odds_flag,True
-disparate_impact_ratio,0.8962743241495701
-disparate_impact_flag,False

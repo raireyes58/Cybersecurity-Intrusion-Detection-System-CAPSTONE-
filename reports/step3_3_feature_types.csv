@@ -1,9 +1,0 @@
-column,dtype,n_unique,role
-protocol_type,object,3,categorical
-encryption_used,object,2,categorical
-browser_type,object,5,categorical
-network_packet_size,int64,929,numeric
-login_attempts,int64,8,numeric
-session_duration,float64,9115,numeric
-failed_logins,float64,5,numeric
-unusual_time_access,int64,1,numeric

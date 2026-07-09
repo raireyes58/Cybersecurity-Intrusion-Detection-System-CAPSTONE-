@@ -1,7 +1,0 @@
-column,Q1,Q3,IQR,lower_fence,upper_fence,n_outliers,outlier_%
-unusual_time_access,0.0,0.0,0.0,0.0,0.0,1430,14.99
-session_duration,231.953,1105.3806,873.4276,-1078.1884,2415.522,418,4.38
-failed_logins,1.0,2.0,1.0,-0.5,3.5,323,3.39
-login_attempts,3.0,5.0,2.0,0.0,8.0,206,2.16
-network_packet_size,365.0,635.0,270.0,-40.0,1040.0,37,0.39
-ip_reputation_score,0.1919,0.4534,0.2614,-0.2002,0.8455,21,0.22
