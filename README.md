@@ -10,7 +10,7 @@ auditing.
 - **Task:** Binary classification (attack vs. normal), with an
   unsupervised anomaly-detection supplement (Isolation Forest)
 - **Dataset:** [Kaggle — Cybersecurity Intrusion Detection Dataset](https://www.kaggle.com/datasets/dnkumars/cybersecurity-intrusion-detection-dataset)
-- **Best model:** *(fill in your final model name and F1_macro score from Step 4.4)*
+- **Best model:** *Decision Tree (F1-Score macro 0.7778)*
 
 ## 🗂️ Repository Structure
 ├── src/            # Notebook-based reusable functions (see src/README.md)
