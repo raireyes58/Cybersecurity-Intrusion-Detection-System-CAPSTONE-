@@ -1,0 +1,42 @@
+{
+  "project_name": "Cybersecurity Intrusion Detection Capstone",
+  "saved_at": "2026-07-09T10:39:09.003284",
+  "best_model_name": "Decision Tree",
+  "model_class": "DecisionTreeClassifier",
+  "hyperparameters": {
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 10,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 5,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "random_state": 42,
+    "splitter": "best"
+  },
+  "random_state": 42,
+  "test_size": 0.2,
+  "cv_folds": 5,
+  "primary_metric": "f1_macro",
+  "n_features": 3,
+  "cv_f1_mean": 0.7931049716769281,
+  "cv_f1_std": 0.007116935943750803,
+  "test_metrics": {
+    "Accuracy": 0.7987421383647799,
+    "Precision": 0.8665740097289785,
+    "Recall": 0.7749120750293084,
+    "F1_macro": 0.7777807433756295,
+    "ROC_AUC": 0.7942116755471351,
+    "MCC": 0.6349035254789733
+  },
+  "unsupervised_comparison_f1": 0.6883595774367152,
+  "artefacts": {
+    "model": "models/final_model.pkl",
+    "scaler": "models/robust_scaler.pkl",
+    "features": "models/selected_features.json"
+  }
+}
