@@ -5,7 +5,7 @@ intrusions using behavioral and session-level features, with a full
 pipeline from data understanding through explainability and fairness
 auditing.
 
-## 📊 Project Overview
+## 📊 CAPSTONE Overview
 
 - **Task:** Binary classification (attack vs. normal), with an
   unsupervised anomaly-detection supplement (Isolation Forest)
