@@ -10,19 +10,22 @@ auditing.
 - **Task:** Binary classification (attack vs. normal), with an
   unsupervised anomaly-detection supplement (Isolation Forest)
 - **Dataset:** [Kaggle — Cybersecurity Intrusion Detection Dataset](https://www.kaggle.com/datasets/dnkumars/cybersecurity-intrusion-detection-dataset)
-- **Best model:** *Decision Tree (F1-Score macro 0.7778)*
+- **Best model:** *DECISION TREE*
 
 ## 🗂️ Repository Structure
-├── src/          |  # Notebook-based reusable functions (see src/README.md) |
-├── notebooks/    | # Main capstone analysis notebook |
-├── data/         | # Not committed — dataset auto-downloads via kagglehub |
-├── models/       | # Saved model artefacts (final_model.pkl, scaler, config) |
-├── reports/      |  # Generated CSV/text reports (audits, metrics, summaries) |
-├── figures/      |  # Saved visualisations (PNG) |
-├── docs/         | # Final report and presentation decks (technical + business) |
-├── requirements.txt |
-├── LICENSE       |  # MIT License |
-└── README.md     |
+
+- **`src/`** — Notebook-based reusable functions (see `src/README.md`)
+- **`notebooks/`** — Main capstone analysis notebook
+- **`data/`** — Not committed; dataset auto-downloads via kagglehub
+- **`models/`** — Saved model artefacts (`final_model.pkl`, scaler, config)
+- **`reports/`** — Generated CSV/text reports (audits, metrics, summaries)
+- **`figures/`** — Saved visualisations (PNG)
+- **`docs/`** — Final report and presentation decks (technical + business)
+- **`requirements.txt`**
+- **`LICENSE`** — MIT License
+- **`README.md`**
+
+
 
 ## 🚀 Getting Started
 
@@ -61,8 +64,8 @@ auditing.
 
 ## 🔍 Key Results
 
-- Best model: **Decision Tree**
-- F1-Score (macro): **0.7778*
+- Best model: **DECISION TREE**
+- F1-Score (macro): **0.7778**
 - Recall (attack detection): **0.7749**
 - ROC-AUC: **0.7942**
 
@@ -80,10 +83,6 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 ## 👤 Author
 
-- **Raizza Reyes-Basa**
-- **Postgrad Diploma in Artificial Intelligence and Machine Learning**
-- **Asian Institute of Management**
-- **Class of 2025 - COHORT 3**
-- **Linkedin : https://www.linkedin.com/in/raireyes/**
-
-
+**Raizza Reyes-Basa**
+- 🎓 Postgraduate Diploma in Artificial Intelligence and Machine Learning — Asian Institute of Management, Class of 2025 (Cohort 3)
+- 🔗 LinkedIn: [linkedin.com/in/raireyes](https://www.linkedin.com/in/raireyes/)
