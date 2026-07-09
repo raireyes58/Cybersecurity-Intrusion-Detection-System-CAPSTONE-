@@ -1,0 +1,73 @@
+MODEL LIMITATIONS ANALYSIS
+============================================================
+
+1. CLASS IMBALANCE
+   Original dataset class ratio (Step 2): 1.24:1
+   Mitigation applied: SMOTE oversampling (Step 4.2) on training data only.
+
+   RISK: SMOTE generates synthetic minority-class examples by interpolating
+   between real neighbours — it does not add genuinely new information about
+   rare attack patterns, only more balanced exposure to the patterns already
+   present. If a genuinely novel attack type is under-represented in the
+   original data, SMOTE cannot manufacture examples of it.
+
+   The test-set F1_macro (0.7778) reflects performance on the TRUE,
+   still-imbalanced distribution — this is the only honest measure of
+   real-world reliability; training-set metrics on SMOTE-balanced data
+   would overstate performance.
+
+1B. FEATURE SET CONCENTRATION
+   Mutual-information filtering (Step 3.12) retained only 3 feature(s) above the 0.01 threshold: ['failed_login_rate', 'failed_logins', 'login_attempts']
+
+   Two of these — failed_logins and login_attempts — are the direct
+   inputs to the third (failed_login_rate = failed_logins / login_attempts),
+   meaning the effective feature space is smaller and more redundant than
+   the count suggests.
+
+   OBSERVED EFFECT: five of six model families (Decision Tree, Random Forest,
+   Gradient Boosting, XGBoost, LightGBM) converged to near-identical F1_macro
+   and MCC scores in Step 4.4. This is a direct consequence of the constrained,
+   correlated feature space rather than a modelling error — with only a few
+   correlated integer-count features, there are limited distinct ways to
+   partition the data, so tree-based architectures arrive at similar decision
+   boundaries regardless of their ensembling strategy. Logistic Regression,
+   which models a smooth linear boundary rather than greedy splits, scored
+   differently — consistent with this explanation rather than a data leakage
+   or code-level bug (verified via direct feature-target correlation and SHAP
+   dominance checks, neither of which showed near-perfect/suspicious values).
+
+   IMPLICATION: a lower MI threshold, or retaining domain-derived features
+   (Step 3.11) regardless of individual MI score, may allow future iterations
+   to better differentiate model capability and potentially close the gap to
+   the Step 1.4 F1_macro target.
+
+2. DATA LEAKAGE RISK
+   Deliberate leakage-prevention steps taken in this notebook:
+   - Identifier columns (e.g. session_id) dropped in Step 3.1, before any
+     encoding — prevents the model from memorising row identity.
+   - RobustScaler (Step 4.1) fit on X_train ONLY, then applied to X_test —
+     fitting on combined data would leak test-set statistics into training.
+   - SMOTE (Step 4.2) applied to X_train ONLY — applying it to test data
+     would inflate metrics with synthetic, non-real evaluation examples.
+
+   REMAINING RISK: this dataset's session-level features (e.g. session_duration,
+   failed_logins) are aggregated per-session. If any sessions in the raw data
+   originate from the same underlying user/device across the train/test split,
+   subtle user-level leakage could still exist that a random row-level split
+   would not catch — this was not testable with the fields available.
+
+3. OVERFITTING RISK
+   Train-test F1_macro gap        : +0.0154
+   Cross-validation F1_macro (4.10): 0.7931 ± 0.0071
+
+   ✅ The train-test gap is within a reasonable range, suggesting the model
+   is not substantially overfit to the training data.
+
+   ✅ Low cross-validation variance supports that the single test-set result
+   is representative and not a fold-dependent artifact.
+
+SUMMARY
+   This model's reported 0.7778 F1_macro should be read as a realistic,
+   but not infallible, estimate — bounded by known imbalance-correction
+   trade-offs, mitigated-but-not-eliminated leakage risk, and quantified
+   overfitting/stability checks above.

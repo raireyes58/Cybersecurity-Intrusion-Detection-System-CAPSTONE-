@@ -1,0 +1,12 @@
+column,dtype,missing_n,missing_%,flag
+encryption_used,object,1966,20.61,IMPUTE (>0%)
+session_id,object,0,0.0,OK
+network_packet_size,int64,0,0.0,OK
+protocol_type,object,0,0.0,OK
+login_attempts,int64,0,0.0,OK
+session_duration,float64,0,0.0,OK
+ip_reputation_score,float64,0,0.0,OK
+failed_logins,int64,0,0.0,OK
+browser_type,object,0,0.0,OK
+unusual_time_access,int64,0,0.0,OK
+attack_detected,int64,0,0.0,OK

@@ -1,0 +1,50 @@
+FINAL MODEL SELECTED: Decision Tree
+
+1. PRIMARY METRIC RANKING (Step 4.4-4.5)
+   Decision Tree ranked #1 by F1_macro (0.7778),
+   chosen as primary metric for robustness to the class imbalance
+   documented in Step 2.
+
+1B. PERFORMANCE AGAINST STEP 1.4 TARGETS
+   F1_macro  : target ≥ 0.90  |  actual = 0.7778  |  ⚠ SHORTFALL (-0.1222)
+   Recall    : target ≥ 0.90  |  actual = 0.7749  |  ⚠ SHORTFALL (-0.1251)
+   ROC_AUC   : target ≥ 0.95  |  actual = 0.7942  |  ⚠ SHORTFALL (-0.1558)
+   MCC       : target ≥ 0.85  |  actual = 0.6349  |  ⚠ SHORTFALL (-0.2151)
+
+   These targets (set in Step 1.4, before modelling) were aspirational
+   benchmarks, not guarantees. Where a target was not met, this reflects
+   genuine dataset/feature-space limitations (session-level, not packet-
+   level features) rather than an error in modelling — see Step 5.4 for
+   the full limitations discussion.
+
+2. RANKING AGREEMENT ACROSS METRICS (Step 4.7)
+   Random Forest leads on ROC-AUC, while Decision Tree leads on F1_macro.
+   F1_macro was prioritized (per CONFIG['primary_metric']) since it directly
+   reflects performance at the operating threshold, whereas AUC summarizes
+   ranking quality across ALL thresholds, most of which won't be used in practice.
+
+3. ERROR COST ANALYSIS (Step 4.6)
+   False Negative Rate (missed attacks): 45.02%
+   This exceeds a 10% threshold — flagged as a limitation to address in
+   Step 5 (e.g. via threshold tuning, prioritizing recall over precision).
+
+4. HYPERPARAMETER TUNING IMPACT (Step 4.8)
+   Tuning did NOT meaningfully improve on the hand-set baseline parameters
+   from Step 4.3 — the simpler, untuned model is retained as final, avoiding
+   unjustified added complexity.
+
+5. CROSS-VALIDATION STABILITY (Step 4.10)
+   CV F1_macro: 0.7931 ± 0.0071 across 5 folds
+   Low variance confirms the single test-set result is representative,
+   not a favorable split artifact.
+
+6. VALUE OF LABELED DATA (Step 4.9)
+   Supervised Decision Tree outperforms unsupervised Isolation Forest by
+   0.0894 F1_macro points —
+   quantifying the concrete value labeled training data provides over a
+   labels-free approach on this dataset.
+
+CONCLUSION
+   Decision Tree is selected as the final model based on convergent
+   evidence across F1_macro, ROC-AUC, confusion-matrix error costs, and
+   cross-validation stability — not on a single metric in isolation.

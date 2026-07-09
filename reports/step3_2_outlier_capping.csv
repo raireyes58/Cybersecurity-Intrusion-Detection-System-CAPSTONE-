@@ -1,0 +1,6 @@
+column,lower_fence,upper_fence,n_capped,capped_%
+unusual_time_access,0.0,0.0,1430,14.99
+session_duration,-1078.1884,2415.522,418,4.38
+failed_logins,-0.5,3.5,323,3.39
+login_attempts,0.0,8.0,206,2.16
+network_packet_size,-40.0,1040.0,37,0.39

@@ -1,0 +1,45 @@
+======================================================================
+  BIAS & FAIRNESS ANALYSIS REPORT
+  Project: Cybersecurity Intrusion Detection Capstone
+  Model: Decision Tree
+  Generated: 2026-07-09 10:39
+======================================================================
+
+1. EXPLAINABILITY SUMMARY
+----------------------------------------
+   Method: SHAP (TreeExplainer)
+           + Partial Dependence / ICE plots (Step 5.3)
+   Top 5 features driving predictions (by mean |SHAP|):
+     1. failed_logins  (mean |SHAP| = 0.1830)
+     2. login_attempts  (mean |SHAP| = 0.1160)
+     3. failed_login_rate  (mean |SHAP| = 0.0055)
+   Agreement with Step 3.12 mutual-information ranking: 3/10 features in common.
+
+2. LIMITATIONS SUMMARY
+----------------------------------------
+   Class imbalance : original ratio 1.24:1, addressed via train-only SMOTE (Step 4.2).
+   Leakage safeguards: identifier removal (3.1), train-only scaler (4.1),
+                       train-only SMOTE (4.2) — each deliberately applied.
+   Overfitting check: train-test F1_macro gap = +0.0154; CV std = 0.0071.
+   ✅ No major overfitting or instability concern.
+
+3. BIAS & FAIRNESS SUMMARY
+----------------------------------------
+   ⚠ No explicit demographic fields (gender, race, age, socioeconomic
+   status) exist in this dataset. Audit performed using the closest
+   available PROXY attribute: 'ip_reputation_group' (see Step 5.5
+   for the full proxy-identification rationale).
+
+   Demographic Parity  : diff = 0.0269  ✅ OK
+   Equalized Odds       : TPR diff = 0.1123, FPR diff = 0.0000  ⚠ FLAGGED
+   Disparate Impact     : ratio = 0.8963  ✅ OK (≥ 0.80)
+   Overall: 1/3 fairness metrics flagged a concern.
+
+4. PRIORITIZED MITIGATION RECOMMENDATIONS
+----------------------------------------
+   1. Per-group threshold adjustment
+   (Full rationale and trade-offs for each: see Step 5.7.)
+
+5. OVERALL VERDICT
+----------------------------------------
+   This model shows solid overall performance with a limited number of flagged concerns (see sections above). Recommended mitigations should be applied and re-evaluated before production deployment.

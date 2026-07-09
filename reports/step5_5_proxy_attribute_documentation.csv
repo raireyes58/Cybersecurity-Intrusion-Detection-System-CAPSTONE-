@@ -1,0 +1,5 @@
+column,proxy_for,reasoning
+browser_type,"Socioeconomic status, accessibility/disability","Browser/device choice correlates with device age, income bracket, and use of assistive technology."
+ip_reputation_score,"National origin, socioeconomic status (regional infrastructure)","IP reputation is influenced by geographic region and ISP quality, both of which correlate with economic region."
+unusual_time_access,"Socioeconomic status (work schedule), national origin (timezone)","""Unusual"" hours are relative to a typical timezone/schedule — can disadvantage shift workers or users in other timezones."
+protocol_type,Socioeconomic status (device/network access),"Weakest proxy of the four — protocol choice has only an indirect, inconsistent relationship to device type."
