@@ -1,0 +1,12 @@
+column,role,dtype,n_unique,missing_n,missing_%,min,max,mean,sample_values,units,allowed_values,description
+session_id,FEATURE,object,9537,0,0.0,N/A,N/A,N/A,"['SID_00001', 'SID_00002', 'SID_00003', 'SID_00004']",categorical (string ID),SID_00001 – SID_09537 (unique per row),Unique identifier for each recorded network session; not used as a model feature (dropped in Step 3.1)
+network_packet_size,FEATURE,int64,959,0,0.0,64,1285,500.4306,"[599, 472, 629, 804]",bytes,0 – 65535,Size of the network packet captured for the session
+protocol_type,FEATURE,object,3,0,0.0,N/A,N/A,N/A,"['TCP', 'UDP', 'ICMP']",categorical,"TCP, UDP, ICMP",Transport-layer protocol used by the network session
+login_attempts,FEATURE,int64,13,0,0.0,1,13,4.0321,"[4, 3, 5, 2]",count,0 – N (integer),Total login attempts (successful + failed) made during the session
+session_duration,FEATURE,float64,9532,0,0.0,0.5,7190.3922,792.7453,"[492.9832634426563, 1557.9964611204384, 75.04426166420741, 601.2488351708328]",seconds,≥ 0,Total duration of the user/application session
+encryption_used,FEATURE,object,2,1966,20.61,N/A,N/A,N/A,"['DES', 'AES']",categorical,"AES, DES, None (or similar)",Encryption method used for the session transport — sessions with no/weak encryption are more vulnerable to interception
+ip_reputation_score,FEATURE,float64,9537,0,0.0,0.0025,0.9243,0.3313,"[0.606818080396889, 0.3015689675960893, 0.7391643279163831, 0.1232671757524846]",score (0.0 – 1.0),0.0 (trusted) – 1.0 (high-risk),Threat-intelligence reputation score for the source IP address; higher values indicate a history of association with malicious activity
+failed_logins,FEATURE,int64,6,0,0.0,0,5,1.5178,"[1, 0, 2, 3]",count,0 – N (integer),Number of failed login attempts within the session — elevated counts suggest brute-force/credential-stuffing behaviour
+browser_type,FEATURE,object,5,0,0.0,N/A,N/A,N/A,"['Edge', 'Firefox', 'Chrome', 'Unknown']",categorical,"Chrome, Firefox, Safari, Edge, Unknown/Other",Browser/user-agent used to establish the session — unusual or spoofed values can indicate automated/bot traffic
+unusual_time_access,FEATURE,int64,2,0,0.0,0,1,0.1499,"[0, 1]",binary,"0 (normal hours), 1 (unusual hours)",Flag indicating whether the session occurred outside typical access hours — a common indicator of unauthorized or automated access
+attack_detected,TARGET,int64,2,0,0.0,0,1,0.4471,"[1, 0]",binary label,"0 (normal), 1 (attack)","Ground-truth intrusion label: 0 = normal, 1 = attack detected"
